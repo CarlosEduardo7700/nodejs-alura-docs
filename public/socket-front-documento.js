@@ -6,7 +6,7 @@ function emitirTextoDoEditor(textoDoEditor) {
     socket.emit("texto_do_editor", textoDoEditor);
 }
 
-socket.on("texto_do_editor_dos_clientes", (texto) => {
+socket.on("texto_do_editor", (texto) => {
     atualizaTextoDoEditor(texto);
 });
 
