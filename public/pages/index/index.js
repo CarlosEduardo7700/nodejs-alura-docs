@@ -1,4 +1,4 @@
-import "./socket-front-index.js";
+import "../../socket-front-index.js";
 
 const listaDocumentos = document.getElementById("lista-documentos");
 
