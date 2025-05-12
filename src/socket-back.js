@@ -1,4 +1,4 @@
-import { adicionarDocumento, atualizarDocumento, encontrarDocumento, obterDocumentos } from "./documentosDB.js";
+import { adicionarDocumento, atualizarDocumento, encontrarDocumento, excluirDocumento, obterDocumentos } from "./documentosDB.js";
 import io from "./server.js";
 
 io.on("connection", (socket) => {
@@ -41,5 +41,13 @@ io.on("connection", (socket) => {
             socket.to(nomeDoDocumento).emit("texto_do_editor", textoDoEditor);
         }
     });
+
+    socket.on("excluir_documento", async (nomeDoDocumento) => {
+        const resultado = await excluirDocumento(nomeDoDocumento);
+
+        if (resultado.deletedCount) {
+            io.emit("excluir_documento_alert", nomeDoDocumento);
+        }
+    })
 
 });
