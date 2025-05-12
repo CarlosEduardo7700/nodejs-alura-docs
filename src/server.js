@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const caminhoAtual = url.fileURLToPath(import.meta.url);
-const diretorioPublico = path.join(caminhoAtual, "../..", "public");
+const diretorioPublico = path.join(caminhoAtual, "../..", "public/pages");
 
 app.use(express.static(diretorioPublico));
 
